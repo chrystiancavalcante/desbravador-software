@@ -29,13 +29,13 @@ Eu, como usuário, vejo a listagem dos repositórios desse usuário que foi busc
 _ Tailwind css
 
 
-![Página inicial](https://uploaddeimagens.com.br/imagens/GOPAz7Q
+![Página inicial](https://firebasestorage.googleapis.com/v0/b/softwarepro-28ade.appspot.com/o/Captura%20de%20Tela%202023-12-01%20a%CC%80s%2016.21.38.png?alt=media&token=f49c8550-3e8a-4266-930b-bcddf159322c
 )
-![Página de busca](https://uploaddeimagens.com.br/imagens/huBziys
+![Página de busca](https://firebasestorage.googleapis.com/v0/b/softwarepro-28ade.appspot.com/o/Captura%20de%20Tela%202023-12-01%20a%CC%80s%2016.22.04.png?alt=media&token=0d987822-9654-4d89-a5cc-b318a32fd3db
 )
-![Repositorios](https://uploaddeimagens.com.br/imagens/rqoYBqI)
+![Repositorios](https://firebasestorage.googleapis.com/v0/b/softwarepro-28ade.appspot.com/o/Captura%20de%20Tela%202023-12-01%20a%CC%80s%2016.22.29.png?alt=media&token=d7474bd7-6439-4e53-9650-42e5d53482a1)
 
-![Página de detalhe](https://uploaddeimagens.com.br/imagens/SWA5qCY
+![Página de detalhe](https://firebasestorage.googleapis.com/v0/b/softwarepro-28ade.appspot.com/o/Captura%20de%20Tela%202023-12-01%20a%CC%80s%2016.24.58.png?alt=media&token=2d9a8d5b-8f93-42ee-9351-c65b2e02a277
 )
 ## Boas Práticas e Considerações
 
