@@ -29,14 +29,14 @@ Eu, como usuário, vejo a listagem dos repositórios desse usuário que foi busc
 _ Tailwind css
 
 
-https://uploaddeimagens.com.br/imagens/GOPAz7Q
+![Página inicial](https://uploaddeimagens.com.br/imagens/GOPAz7Q
+)
+![Página de busca](https://uploaddeimagens.com.br/imagens/huBziys
+)
+![Repositorios](https://uploaddeimagens.com.br/imagens/rqoYBqI)
 
-https://uploaddeimagens.com.br/imagens/huBziys
-
-https://uploaddeimagens.com.br/imagens/rqoYBqI
-
-https://uploaddeimagens.com.br/imagens/SWA5qCY
-
+![Página de detalhe](https://uploaddeimagens.com.br/imagens/SWA5qCY
+)
 ## Boas Práticas e Considerações
 
 - O projeto segue as boas práticas de desenvolvimento recomendadas.
