@@ -1,7 +1,7 @@
 'use client'
 
-import React, { createContext, useContext, ReactNode, useState } from 'react';
 import axios from 'axios';
+import React, { createContext, useContext, ReactNode, useState } from 'react';
 
 const apiBaseUrl = 'https://api.github.com';
 
