@@ -1,6 +1,7 @@
 'use client'
 import { FC } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useService } from '@/app/context/ApiContext';
 import UserSidebar from '@/app/ui/sidenav/useSideBar';
 import NavLinks from './nav-links';
@@ -18,7 +19,7 @@ const SideNav: FC<SideNavProps> = () => {
         <div className="mb-2 flex h-40 items-end justify-start rounded-md bg-blue-600 p-4 md:h-60">
           <div className="w-32 text-white md:w-40">
             {userData && userData.avatar_url ? (
-              <img
+              <Image
                 src={userData.avatar_url}
                 style={{
                   display: 'flex',
@@ -35,7 +36,7 @@ const SideNav: FC<SideNavProps> = () => {
                 alt="User Avatar"
               />
             ):(
-              <img
+              <Image
                 src='/perfil_padrao.png'
                 style={{
                   display: 'flex',
