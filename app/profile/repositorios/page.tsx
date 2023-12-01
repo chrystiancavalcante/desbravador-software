@@ -18,7 +18,7 @@ interface RepositoriesListProps {
   username: string;
 }
 
-export default function RepositoriesList({ username }: RepositoriesListProps) {
+export function RepositoriesList({ username }: RepositoriesListProps) {
   const { getUserRepos, getRepoDetails } = useService();
   const [repos, setRepos] = useState<Repo[]>([]);
   const [selectedRepo, setSelectedRepo] = useState<Repo | null>(null);
@@ -146,3 +146,4 @@ export default function RepositoriesList({ username }: RepositoriesListProps) {
     </>
   );
 }
+export default RepositoriesList;
