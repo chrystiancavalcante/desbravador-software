@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Search from '@/app/ui/search';
 import { useService } from '@/app/context/ApiContext';
-import  RepositoriesList  from '@/app/profile/repositorios/page';
+import  RepositoriesList  from '@/app/repositorios/page';
 import styles from './styles.module.css';
 import Image from 'next/image';
 
