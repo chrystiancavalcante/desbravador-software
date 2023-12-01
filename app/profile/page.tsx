@@ -7,7 +7,7 @@ import  RepositoriesList  from '@/app/profile/repositorios/page';
 import styles from './styles.module.css';
 import Image from 'next/image';
 
-export default function SuaPagina() {
+export default function Pagina() {
   const { getUserData, setUserData, userData } = useService();
   const [username, setUsername] = useState('');
 
