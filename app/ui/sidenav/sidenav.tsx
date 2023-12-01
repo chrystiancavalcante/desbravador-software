@@ -21,12 +21,12 @@ const SideNav: FC<SideNavProps> = () => {
             {userData && userData.avatar_url ? (
               <Image
                 src={userData.avatar_url}
+                width={150}
+                height={150}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   objectFit: 'cover',
-                  width: '150px',
-                  height: '150px',
                   margin: '15px auto',
                   overflow: 'hidden',
                   backgroundColor: 'white',
@@ -38,12 +38,12 @@ const SideNav: FC<SideNavProps> = () => {
             ):(
               <Image
                 src='/perfil_padrao.png'
+                width={150}
+                height={150}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   objectFit: 'cover',
-                  width: '150px',
-                  height: '150px',
                   margin: '15px auto',
                   overflow: 'hidden',
                   backgroundColor: 'white',
