@@ -1,9 +1,11 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useService } from '@/app/context/ApiContext';
 import { lusitana } from '@/app/ui/fonts';
-import styles from '@/app/profile/styles.module.css';
 import Link from 'next/link';
+import styles from '@/app/ui/styles.module.css'; 
 
 interface Repo {
   html_url: string;
@@ -16,9 +18,9 @@ interface Repo {
 
 interface RepositoriesListProps {
   username: string;
-}
+} 
 
-export default function RepositoriesList({ username }: RepositoriesListProps) {
+const RepositoriesList: React.FC<RepositoriesListProps> =({ username }: RepositoriesListProps) => {
   const { getUserRepos, getRepoDetails } = useService();
   const [repos, setRepos] = useState<Repo[]>([]);
   const [selectedRepo, setSelectedRepo] = useState<Repo | null>(null);
@@ -50,7 +52,7 @@ export default function RepositoriesList({ username }: RepositoriesListProps) {
     <>
       {selectedRepo ? (
         <div className="mt-4">
-          <div className={styles.container}>
+          <div>
             <div className={styles.texto}>
           <h2>Detalhes do Repositório</h2>
             </div>
@@ -101,6 +103,7 @@ export default function RepositoriesList({ username }: RepositoriesListProps) {
                   </tr>
                 </thead>
                 <tbody className="bg-white">
+                
                   {repos.slice(0, visibleRepos).map((repo) => (
                     <tr
                       key={repo.id}
@@ -125,12 +128,11 @@ export default function RepositoriesList({ username }: RepositoriesListProps) {
                           onClick={() => handleVerDetalhes(username + '/' + repo.name)}
                           className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
                         >
-                          Ver detalhes
+                          <MagnifyingGlassIcon className="h-5 md:ml-4" />
+                           Detalhes
                         </button>
-
                       </td>
                     </tr>
-
                   ))}
                 </tbody>
               </table>
@@ -146,3 +148,4 @@ export default function RepositoriesList({ username }: RepositoriesListProps) {
     </>
   );
 }
+export default RepositoriesList;

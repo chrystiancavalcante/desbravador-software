@@ -1,11 +1,11 @@
 "use client";
 
+import Image from 'next/image';
 import { useState } from 'react';
 import Search from '@/app/ui/search';
 import { useService } from '@/app/context/ApiContext';
-import  RepositoriesList  from '@/app/repositorios/page';
-import styles from './styles.module.css';
-import Image from 'next/image';
+import   RepositoriosPage  from '@/app/repositorios/page';
+import styles from '@/app/ui/styles.module.css';
 
 export default function Pagina() {
   const { getUserData, setUserData, userData } = useService();
@@ -23,7 +23,7 @@ export default function Pagina() {
 
   return (
     <div>
-      {!userData &&(<div className={styles.container}>
+      {!userData &&(<div >
      <div className={styles.texto}>
           Bora pesquisar? Preencha o nome do usuário que deseja pesquisar..
         </div> 
@@ -45,7 +45,7 @@ export default function Pagina() {
         alt="inicial para versão mobile"
       />
       </div>}
-      {username && <RepositoriesList username={username} />}
+      {username && <RepositoriosPage username={username} />}
     </div>
   );
 }

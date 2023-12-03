@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { ApiProvider } from '@/app/context/ApiContext';
 import '@/app/ui/global.css';
