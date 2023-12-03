@@ -14,13 +14,12 @@ interface Repo {
   description: string | null;
   stargazers_count: number;
   language: string | null;
+  username: string; 
 }
 
-interface ListProps {
-  username: string;
-} 
 
-const RepositoriesPage: React.FC<ListProps> = ({ username }: ListProps) => {
+
+const RepositoriesPage: React.FC<{ username: string }> = ({ username }) =>  {
   const { getUserRepos, getRepoDetails } = useService();
   const [repos, setRepos] = useState<Repo[]>([]);
   const [selectedRepo, setSelectedRepo] = useState<Repo | null>(null);
