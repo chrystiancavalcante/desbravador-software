@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Search from '@/app/ui/search';
 import { useService } from '@/app/context/ApiContext';
-import   RepositoriesPage  from '@/app/repositorios/page';
+import   RepositoriesPage  from '@/app/ui/RepositoriesPage';
 import styles from '@/app/ui/styles.module.css';
 
 export default function Pagina() {
