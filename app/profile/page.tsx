@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Search from '@/app/ui/search';
 import { useService } from '@/app/context/ApiContext';
-import   RepositoriosPage  from '@/app/repositorios/page';
+import   RepositoriesPage  from '@/app/repositorios/page';
 import styles from '@/app/ui/styles.module.css';
 
 export default function Pagina() {
@@ -45,7 +45,7 @@ export default function Pagina() {
         alt="inicial para versão mobile"
       />
       </div>}
-      {username && <RepositoriosPage username={username} />}
+      {username && <RepositoriesPage username={username} />}
     </div>
   );
 }

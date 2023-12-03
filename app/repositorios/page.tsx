@@ -20,7 +20,7 @@ interface ListProps {
   username: string;
 } 
 
-const RepositoriesList: React.FC<ListProps> = ({ username }: ListProps) => {
+const RepositoriesPage: React.FC<ListProps> = ({ username }: ListProps) => {
   const { getUserRepos, getRepoDetails } = useService();
   const [repos, setRepos] = useState<Repo[]>([]);
   const [selectedRepo, setSelectedRepo] = useState<Repo | null>(null);
@@ -157,4 +157,4 @@ const RepositoriesList: React.FC<ListProps> = ({ username }: ListProps) => {
     </>
   );
 }
-export default RepositoriesList;
+export default RepositoriesPage;
