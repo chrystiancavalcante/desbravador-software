@@ -29,7 +29,7 @@ const SuaPagina = () => {
 
   return (
 
-    <Search placeholder={''} />
+    <p>Teste</p>
   );
 };
 
