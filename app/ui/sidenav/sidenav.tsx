@@ -7,7 +7,7 @@ import UserSidebar from '@/app/ui/sidenav/useSideBar';
 import NavLinks from './nav-links';
 
 interface SideNavProps {
-  userData: any | null; 
+  userData: any | null;
 }
 
 const SideNav: FC<SideNavProps> = () => {
@@ -16,7 +16,7 @@ const SideNav: FC<SideNavProps> = () => {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Link href="/">
-        <div className="mb-2 flex h-40 items-end justify-start rounded-md bg-blue-600 p-4 md:h-60">
+        <div className="mb-2 flex items-end justify-start rounded-md bg-blue-600 p-4 md:h-60">
           <div className="w-32 text-white md:w-40">
             {userData && userData.avatar_url ? (
               <Image
@@ -35,7 +35,7 @@ const SideNav: FC<SideNavProps> = () => {
                 }}
                 alt="User Avatar"
               />
-            ):(
+            ) : (
               <Image
                 src='/perfil_padrao.png'
                 width={150}
@@ -54,11 +54,16 @@ const SideNav: FC<SideNavProps> = () => {
               />
             )}
           </div>
+          <div className="block md:hidden h-auto w-full grow rounded-md text-white text-left ml-4">
+            <UserSidebar />
+          </div>
         </div>
       </Link>
-      <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
-        <UserSidebar />
-        <NavLinks/>
+      <div className="flex grow flex-row space-x-2 md:flex-col md:space-x-0 md:space-y-2">
+        <div className='hidden md:block h-auto w-full grow rounded-md bg-gray-50'>
+          <UserSidebar />
+        </div>
+        <NavLinks />
       </div>
     </div>
   );

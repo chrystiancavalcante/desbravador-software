@@ -7,13 +7,15 @@ const UserSidebar: React.FC = () => {
   const { userData } = useService();
 
   return (
-    <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block">
-      {userData && <span>{userData.login}</span>}
-      {userData && <p>Followers: {userData.followers}</p>}
-      {userData && <p>Following: {userData.following}</p>}
-      {userData && <p>Email: {userData.email}</p>}
-      {userData && <p>Bio: {userData.bio}</p>}
+    <>
+    <div>
+      {userData && <strong>{userData.login}</strong>}
+      {userData && <p><strong>Followers: </strong>{userData.followers}</p>}
+      {userData && <p><strong>Following: </strong>{userData.following}</p>}
+      {userData && <p><strong>Email: </strong>{userData.email}</p>}
+      {userData && <p><strong>Bio: </strong>{userData.bio}</p>}
     </div>
+    </>
   );
 };
 

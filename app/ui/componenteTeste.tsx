@@ -1,8 +1,9 @@
 'use client';
+
 // pages/seuComponente.tsx
 import { useEffect, useState } from 'react';
 import { useApiService } from '@/app/services/apiService';
-import Search from '@/app/ui/search';
+//import Search from '@/app/ui/search';
 
 const SuaPagina = () => {
   const { getUserData, getUserRepos, getRepoDetails } = useApiService();

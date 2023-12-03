@@ -8,7 +8,7 @@ import clsx from 'clsx';
 
 const links = [
   { name: 'Início', href: '/', icon: HomeIcon },
-  { name: 'Perfil', href: '/profile', icon: UserGroupIcon }, 
+  { name: 'Perfil', href: '/profile', icon: UserGroupIcon },
 ];
 
 export default function NavLinks() {

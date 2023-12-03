@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Search from '@/app/ui/search';
 import { useService } from '@/app/context/ApiContext';
-import   RepositoriesPage  from '@/app/ui/RepositoriesPage';
+import Repositories from '@/app/ui/RepositoriesPage';
 import styles from '@/app/ui/styles.module.css';
 
 export default function Pagina() {
@@ -12,22 +12,22 @@ export default function Pagina() {
   const [username, setUsername] = useState('');
 
   const handleSearch = async (searchTerm: string) => {
-    try { 
+    try {
       const fetchedUserData = await getUserData(searchTerm);
       setUserData(fetchedUserData);
-      setUsername(searchTerm);           
+      setUsername(searchTerm);
     } catch (error) {
       console.error('Erro ao buscar dados do usuário', error);
-    }    
+    }
   };
 
   return (
     <div>
-      {!userData &&(<div >
-     <div className={styles.texto}>
-          Bora pesquisar? Preencha o nome do usuário que deseja pesquisar..
-        </div> 
-      </div>)}    
+      {!userData && (<div >
+        <div className={styles.texto}>
+          Bora pesquisar? Preencha com o nome do usuário que deseja pesquisar..
+        </div>
+      </div>)}
       {!userData && <Search placeholder="Digite o nome de usuário" onSearch={handleSearch} />}
       {!userData && <div className='styles.centerImage p-6 md:w-4/5 md:px-28 md:py-12'>
         <Image
@@ -37,15 +37,15 @@ export default function Pagina() {
           className="hidden md:block"
           alt="Imagem inicial para versão desktop"
         />
-         <Image
-        src="/iniciar.png"
-        width={560}
-        height={620}
-        className="block md:hidden"
-        alt="inicial para versão mobile"
-      />
+        <Image
+          src="/iniciar.png"
+          width={560}
+          height={620}
+          className="block md:hidden"
+          alt="inicial para versão mobile"
+        />
       </div>}
-      {username && <RepositoriesPage username={username} />}
+      {username && <Repositories username={username} />}
     </div>
   );
 }
