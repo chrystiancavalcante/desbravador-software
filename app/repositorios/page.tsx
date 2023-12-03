@@ -16,18 +16,27 @@ interface Repo {
   language: string | null;
 }
 
-interface RepositoriesListProps {
+interface ListProps {
   username: string;
 } 
 
-const RepositoriesList: React.FC<RepositoriesListProps> =({ username }: RepositoriesListProps) => {
+const RepositoriesList: React.FC<ListProps> = ({ username }: ListProps) => {
   const { getUserRepos, getRepoDetails } = useService();
   const [repos, setRepos] = useState<Repo[]>([]);
   const [selectedRepo, setSelectedRepo] = useState<Repo | null>(null);
   const [visibleRepos, setVisibleRepos] = useState<number>(5);
 
   useEffect(() => {
-    getUserRepos(username).then((repos) => setRepos(repos));
+    const fetchData = async () => {
+      try {
+        const userRepos = await getUserRepos(username);
+        setRepos(userRepos);
+      } catch (error) {
+        console.error('Erro ao obter repositórios do usuário', error);
+      }
+    };
+
+    fetchData();
   }, [getUserRepos, username]);
 
   const handleVerDetalhes = async (repoFullName: string) => {
