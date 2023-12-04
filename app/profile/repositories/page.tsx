@@ -1,10 +1,10 @@
 import React from 'react';
 import RepositoriesPage from '@/app/ui/repositories/RepositoriesPage';
 
-const RepoList: React.FC<{ username: string }> = ({ username }) => {
+const RepoList: React.FC = () => {
     return (
         <div>
-            <RepositoriesPage username={username} />
+            <RepositoriesPage username={''} />
         </div>
     );
 }

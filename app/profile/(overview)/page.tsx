@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Search from '@/app/ui/search';
 import { useService } from '@/app/context/ApiContext';
-import RepoList from '@/app/profile/repositories/page';
 import styles from '@/app/ui/styles.module.css';
 import { TableRowSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
+import RepositoriesPage from '@/app/ui/repositories/RepositoriesPage';
 
 export default function Pagina() {
   const { getUserData, setUserData, userData } = useService();
@@ -22,7 +22,6 @@ export default function Pagina() {
       console.error('Erro ao buscar dados do usuário', error);
     }
   };
-
 
   return (
     <div>
@@ -49,10 +48,8 @@ export default function Pagina() {
         />
       </div>}
       <Suspense fallback={<TableRowSkeleton/>}>
-        {username && (
-        <RepoList username={username} />
-        )}
-      </Suspense> 
+        {username && <RepositoriesPage username={username} />}
+      </Suspense>
     </div>
   );
 }
