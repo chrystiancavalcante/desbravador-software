@@ -42,16 +42,21 @@ const RepositoriesPage: React.FC<{ username: string }> = ({ username }) => {
 
     const sortedRepos = [...repos].sort((a, b) => {
       if (key === 'name') {
-        return isAscending ? a[key].localeCompare(b[key]) : b[key].localeCompare(a[key]);
+        return isAscending ? (a[key]?.localeCompare(b[key] ?? '') || 0) : (b[key]?.localeCompare(a[key] ?? '') || 0);
       }
-      return isAscending ? a[key] - b[key] : b[key] - a[key];
+
+      const aValue = typeof a[key] === 'number' ? a[key] : 0;
+      const bValue = typeof b[key] === 'number' ? b[key] : 0;
+      if (aValue === null || aValue === undefined) return isAscending ? 1 : -1;
+      if (bValue === null || bValue === undefined) return isAscending ? -1 : 1;
+  
+      return isAscending ? Number(aValue) - Number(bValue) : Number(bValue) - Number(aValue);
     });
 
     setRepos(sortedRepos);
     setReposOrder({ key, order: newOrder });
   };
 
-  // State para rastrear a ordem atual dos repositórios
   const [reposOrder, setReposOrder] = useState<{ key: keyof Repo | null; order: 'asc' | 'desc' }>({
     key: null,
     order: 'asc',
