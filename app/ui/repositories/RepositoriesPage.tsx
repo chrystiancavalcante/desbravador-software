@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ArrowLeftIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { ArrowLeftIcon, MagnifyingGlassIcon, BarsArrowUpIcon, BarsArrowDownIcon } from '@heroicons/react/24/outline';
 import { useService } from '@/app/context/ApiContext';
 import { lusitana } from '@/app/ui/fonts';
 import Link from 'next/link';
@@ -49,7 +49,7 @@ const RepositoriesPage: React.FC<{ username: string }> = ({ username }) => {
       const bValue = typeof b[key] === 'number' ? b[key] : 0;
       if (aValue === null || aValue === undefined) return isAscending ? 1 : -1;
       if (bValue === null || bValue === undefined) return isAscending ? -1 : 1;
-  
+
       return isAscending ? Number(aValue) - Number(bValue) : Number(bValue) - Number(aValue);
     });
 
@@ -61,6 +61,9 @@ const RepositoriesPage: React.FC<{ username: string }> = ({ username }) => {
     key: null,
     order: 'asc',
   });
+  const getIconForOrder = (order: 'asc' | 'desc') => {
+    return order === 'asc' ? <BarsArrowUpIcon className="w-4 h-4" /> : <BarsArrowDownIcon className="w-4 h-4" />;
+  };
 
   const handleVerDetalhes = async (repoFullName: string) => {
     console.log('Detalhes do repositório:', repoFullName);
@@ -84,12 +87,12 @@ const RepositoriesPage: React.FC<{ username: string }> = ({ username }) => {
     <>
       {selectedRepo ? (
         <div className="mt-4">
-            <button
-              onClick={() => setSelectedRepo(null)}
-              className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3"
-            >
-              <ArrowLeftIcon className="w-5 md:w-6" />
-            </button>
+          <button
+            onClick={() => setSelectedRepo(null)}
+            className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3"
+          >
+            <ArrowLeftIcon className="w-5 md:w-6" />
+          </button>
           <div className={styles.texto}>
             <h2>Detalhes do Repositório</h2>
           </div>
@@ -167,13 +170,19 @@ const RepositoriesPage: React.FC<{ username: string }> = ({ username }) => {
                       <thead className="rounded-md bg-gray-50 text-left text-sm font-normal">
                         <tr>
                           <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                          <button onClick={() => sortRepos('name')}>Nome ({reposOrder.key === 'name' ? reposOrder.order : 'asc'})</button>
+                            <button onClick={() => sortRepos('name')} className="flex items-center">
+                              {getIconForOrder(reposOrder.key === 'name' ? reposOrder.order : 'asc')}
+                              <span className="mr-1">Nome</span>
+                            </button>
                           </th>
                           <th scope="col" className="px-3 py-5 font-medium">
                             Descrição
                           </th>
                           <th scope="col" className="px-3 py-5 font-medium">
-                          <button onClick={() => sortRepos('stargazers_count')}> Estrelas({reposOrder.key === 'stargazers_count' ? reposOrder.order : 'asc'})</button>
+                            <button onClick={() => sortRepos('stargazers_count')} className="flex items-center">
+                              {getIconForOrder(reposOrder.key === 'stargazers_count' ? reposOrder.order : 'asc')}
+                              <span className="mr-1">Estrelas</span>
+                            </button>
                           </th>
                           <th scope="col" className="px-3 py-5 font-medium">
                             Linguagem

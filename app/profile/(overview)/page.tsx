@@ -5,8 +5,6 @@ import { useState } from 'react';
 import Search from '@/app/ui/search';
 import { useService } from '@/app/context/ApiContext';
 import styles from '@/app/ui/styles.module.css';
-import { TableRowSkeleton } from '@/app/ui/skeletons';
-import { Suspense } from 'react';
 import RepositoriesPage from '@/app/ui/repositories/RepositoriesPage';
 
 export default function Pagina() {
@@ -24,7 +22,7 @@ export default function Pagina() {
   };
 
   return (
-    <div>
+    <div>         
       {!userData && (<div >
         <div className={styles.texto}>
           Bora pesquisar? Preencha com o nome do usuário que deseja pesquisar..
@@ -47,9 +45,7 @@ export default function Pagina() {
           alt="inicial para versão mobile"
         />
       </div>}
-      <Suspense fallback={<TableRowSkeleton/>}>
-        {username && <RepositoriesPage username={username} />}
-      </Suspense>
+      {username && <RepositoriesPage username={username} />}
     </div>
   );
 }
