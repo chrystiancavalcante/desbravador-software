@@ -36,6 +36,27 @@ const RepositoriesPage: React.FC<{ username: string }> = ({ username }) => {
     fetchData();
   }, [getUserRepos, username]);
 
+  const sortRepos = (key: keyof Repo) => {
+    const isAscending = reposOrder.key === key && reposOrder.order === 'asc';
+    const newOrder = isAscending ? 'desc' : 'asc';
+
+    const sortedRepos = [...repos].sort((a, b) => {
+      if (key === 'name') {
+        return isAscending ? a[key].localeCompare(b[key]) : b[key].localeCompare(a[key]);
+      }
+      return isAscending ? a[key] - b[key] : b[key] - a[key];
+    });
+
+    setRepos(sortedRepos);
+    setReposOrder({ key, order: newOrder });
+  };
+
+  // State para rastrear a ordem atual dos repositórios
+  const [reposOrder, setReposOrder] = useState<{ key: keyof Repo | null; order: 'asc' | 'desc' }>({
+    key: null,
+    order: 'asc',
+  });
+
   const handleVerDetalhes = async (repoFullName: string) => {
     console.log('Detalhes do repositório:', repoFullName);
     try {
@@ -58,16 +79,16 @@ const RepositoriesPage: React.FC<{ username: string }> = ({ username }) => {
     <>
       {selectedRepo ? (
         <div className="mt-4">
-          <div className={styles.texto}>
-            <h2>Detalhes do Repositório</h2>
-          </div>
-          <div className="rounded-xl bg-gray-50 p-2 shadow-sm">
             <button
               onClick={() => setSelectedRepo(null)}
               className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
             >
               <ArrowLeftIcon className="w-5 md:w-6" />
             </button>
+          <div className={styles.texto}>
+            <h2>Detalhes do Repositório</h2>
+          </div>
+          <div className="rounded-xl bg-gray-50 p-2 shadow-sm">
             <div className="flex p-4">
               <h2 className={`${lusitana.className}whitespace-wrap px-4 py-5 text-center text-2xl`}><strong>{selectedRepo.name}</strong></h2>
             </div>
@@ -141,13 +162,13 @@ const RepositoriesPage: React.FC<{ username: string }> = ({ username }) => {
                       <thead className="rounded-md bg-gray-50 text-left text-sm font-normal">
                         <tr>
                           <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                            Nome
+                          <button onClick={() => sortRepos('name')}>Nome ({reposOrder.key === 'name' ? reposOrder.order : 'asc'})</button>
                           </th>
                           <th scope="col" className="px-3 py-5 font-medium">
                             Descrição
                           </th>
                           <th scope="col" className="px-3 py-5 font-medium">
-                            Estrelas
+                          <button onClick={() => sortRepos('stargazers_count')}> Estrelas({reposOrder.key === 'stargazers_count' ? reposOrder.order : 'asc'})</button>
                           </th>
                           <th scope="col" className="px-3 py-5 font-medium">
                             Linguagem
