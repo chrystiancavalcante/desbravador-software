@@ -18,7 +18,7 @@ Este projeto é um desafio de front-end
 - como usuário, efetuo busca por um usuário do GitHub;
 - como usuário, vejo os detalhes do usuário buscado (número de seguidores, número de seguidos, imagem do avatar, e-mail e bio);
 Eu, como usuário, vejo a listagem dos repositórios desse usuário que foi buscado podendo ordenar de forma asc ou desc pelo nome e estrelas;
-- como usuário, vejo uma página com os detalhes de um repositório nome, descrição, ,número de estrelas, linguagem e um link externo para a página do repositório no GitHub;
+- como usuário, vejo uma página com os detalhes de um repositório nome, descrição, número de estrelas, linguagem e um link externo para a página do repositório no GitHub;
 
 ## Tecnologias Utilizadas
 
@@ -27,6 +27,8 @@ Eu, como usuário, vejo a listagem dos repositórios desse usuário que foi busc
 - Context API
 - Axios
 _ Tailwind css
+
+
 
 
 ![Página inicial](https://firebasestorage.googleapis.com/v0/b/softwarepro-28ade.appspot.com/o/Captura%20de%20Tela%202023-12-01%20a%CC%80s%2016.21.38.png?alt=media&token=f49c8550-3e8a-4266-930b-bcddf159322c
