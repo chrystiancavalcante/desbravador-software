@@ -38,9 +38,9 @@ export default function Pagina() {
           alt="Imagem inicial para versão desktop"
         />
         <Image
-          src="/iniciar.png"
+          src="/pesquise.png"
           width={560}
-          height={620}
+          height={340}
           className="block md:hidden"
           alt="inicial para versão mobile"
         />
