@@ -37,7 +37,7 @@ const SideNav: FC<SideNavProps> = () => {
               />
             ) : (
               <Image
-                src='/perfil_padrao.png'
+                src='/perfil_github.png'
                 width={150}
                 height={150}
                 style={{

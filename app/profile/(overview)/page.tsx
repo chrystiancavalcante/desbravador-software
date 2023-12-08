@@ -31,9 +31,9 @@ export default function Pagina() {
       {!userData && <Search placeholder="Digite o nome de usuário" onSearch={handleSearch} />}
       {!userData && <div className='styles.centerImage p-6 md:w-4/5 md:px-28 md:py-12'>
         <Image
-          src="/iniciar.png"
+          src="/pesquise.png"
           width={1000}
-          height={760}
+          height={340}
           className="hidden md:block"
           alt="Imagem inicial para versão desktop"
         />
